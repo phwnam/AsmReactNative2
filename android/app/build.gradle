@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.appbanhang"
+    namespace "com.phwnamphoneshop"
     defaultConfig {
-        applicationId "com.appbanhang"
+        applicationId "com.phwnamphoneshop"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

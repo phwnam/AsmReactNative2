@@ -1,4 +1,4 @@
-package com.appbanhang
+package com.phwnamphoneshop
 
 import android.app.Application
 import com.facebook.react.PackageList
