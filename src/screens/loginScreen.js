@@ -1,4 +1,4 @@
-import { Button,TouchableOpacity, StyleSheet, Text, TextInput, View, Image, StatusBar, Alert } from 'react-native'
+import { Button,TouchableOpacity, StyleSheet, Text, TextInput, View, Image, StatusBar, Alert, ImageBackground } from 'react-native'
 import React, {useState} from 'react';
 //hehehehehehe
 
@@ -44,7 +44,8 @@ const LoginScreen = ({navigation}) => {
   }
 
   return (
-    <View style={st.container}>
+    <ImageBackground source={require('../img/background.png')}>
+      <View style={st.container}>
       <StatusBar barStyle="light-content"/>
       <Image
         style={{ width:200,alignSelf:'center'}}
@@ -77,6 +78,7 @@ const LoginScreen = ({navigation}) => {
           </TouchableOpacity>
         </View>
     </View>
+    </ImageBackground>
   )
 }
 
@@ -88,7 +90,6 @@ const st = StyleSheet.create({
     height:'100%',
     justifyContent:'center',
     textAlign:'center',
-    backgroundColor:'white'
   },
   logo: {
     width:400,

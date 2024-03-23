@@ -3,7 +3,9 @@ import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon1 from 'react-native-vector-icons/Ionicons';
 
+
 import { COLORS } from '../theme/theme';
+import apiUrl from '../database/api';
 
 const OrderScreen = (props) => {
   const [orders, setOrders] = useState([]);
@@ -18,7 +20,7 @@ const OrderScreen = (props) => {
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch(`https://65d02e84ab7beba3d5e2daa0.mockapi.io/orders`);
+      const response = await fetch(`${apiUrl}/orders`);
       const data = await response.json();
       setOrders(data);
       setIsLoading(false);

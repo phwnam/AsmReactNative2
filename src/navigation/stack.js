@@ -8,19 +8,21 @@ import SplashScreen from '../screens/splashScreen';
 import Tabs from './tabs';
 import MenuScreen from '../screens/menuScreen';
 import PersonalScreen from '../screens/personalDetailScreen';
+import SeenProduct from '../screens/seenProduct';
 
 
 const Stack = createStackNavigator();
 
 const StackNav = () => {
   return (
-    <Stack.Navigator initialRouteName="Home1">
+    <Stack.Navigator initialRouteName="Splash">
       <Stack.Screen name="Splash" component={SplashScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Login" component={LoginScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Register" component={RegisterScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Home1" component={Tabs} options={{headerShown:false}}/>
       <Stack.Screen name="Menu" component={MenuScreen} options={{headerShown:false}}/>
       <Stack.Screen name="Person" component={PersonalScreen} options={{headerShown:false}}/>
+      <Stack.Screen name="Seen" component={SeenProduct} options={{headerShown:false}}/>
       {/* <Stack.Screen name="Tab" component={Tabs} options={{headerShown:false}}/> */}
     </Stack.Navigator>
   );

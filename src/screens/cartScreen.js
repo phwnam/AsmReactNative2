@@ -3,6 +3,7 @@ import { SafeAreaView, Alert, View, Text, Image, StyleSheet, TouchableOpacity, F
 import { COLORS } from '../theme/theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon1 from 'react-native-vector-icons/Ionicons';
+import apiUrl from '../database/api';
 
 const ProductScreen = (props) => {
 
@@ -11,10 +12,9 @@ const ProductScreen = (props) => {
   const [paymentSuccess, setPaymentSuccess] = useState(false);
 
   const getListCart = async () => {
-    const url_api = 'https://65baf1bfb4d53c066553b8a3.mockapi.io/carts';
 
     try {
-      const response = await fetch(url_api);
+      const response = await fetch(`${apiUrl}/carts`);
       const json = await response.json();
       setCart(json);
     } catch (error) {
@@ -36,7 +36,7 @@ const ProductScreen = (props) => {
     setCart(updatedCart);
 
     try {
-      await fetch(`https://65baf1bfb4d53c066553b8a3.mockapi.io/carts/${itemId}`, {
+      await fetch(`${apiUrl}/carts/${itemId}`, {
         method: 'DELETE',
       });
       console.log('Cart item deleted successfully');
@@ -78,7 +78,7 @@ const ProductScreen = (props) => {
     setCart(updatedCart);
 
     try {
-      await fetch(`https://65baf1bfb4d53c066553b8a3.mockapi.io/carts/${itemId}`, {
+      await fetch(`${apiUrl}/carts/${itemId}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -107,7 +107,7 @@ const ProductScreen = (props) => {
         quantity: item.quantity,
       }));
       
-      const response = await fetch(`https://65d02e84ab7beba3d5e2daa0.mockapi.io/orders`, {
+      const response = await fetch(`${apiUrl}/orders`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -124,7 +124,7 @@ const ProductScreen = (props) => {
       
       // Sau khi thanh toán thành công, cập nhật giỏ hàng trên server
   
-      const response1 = await fetch(`https://65baf1bfb4d53c066553b8a3.mockapi.io/carts`, {
+      const response1 = await fetch(`${apiUrl}/carts`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -243,8 +243,9 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   image: {
-    width: '40%',
-    height: 130,
+    width: 100,
+    height: 100,
+    marginVertical:15,
     borderRadius: 5,
   },
   info: {
@@ -329,7 +330,7 @@ const styles = StyleSheet.create({
   },
   deleteButton: {
     position: 'absolute',
-    marginLeft: 195,
+    marginLeft: 240,
     marginTop: 50
   }
 });

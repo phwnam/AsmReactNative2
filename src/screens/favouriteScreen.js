@@ -4,6 +4,7 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Icon1 from 'react-native-vector-icons/Ionicons';
 import { COLORS } from '../theme/theme';
+import apiUrl from '../database/api';
 
 
 
@@ -12,10 +13,8 @@ const FavouriteScreen = (props) => {
   const [dssp, setDssp] = useState([]);
 
   const getListSp = async () => {
-    let url_api = 'https://65baf1bfb4d53c066553b8a3.mockapi.io/products';
-
     try {
-      const response = await fetch(url_api);//load dlieu
+      const response = await fetch(`${apiUrl}/products`);//load dlieu
       const json = await response.json(); //chuyển dlieu -> json
       setDssp(json.filter(item => item.favourite == true));//đổ dl
     } catch (error) {
@@ -35,10 +34,14 @@ const FavouriteScreen = (props) => {
   }, [props.navigation]);
 
   const removeFavor = async (idProd) => {
-    fetch(`https://65baf1bfb4d53c066553b8a3.mockapi.io/products/${idProd}`, {
+    const updatedProduct = {
+      ...dssp.find(item => item.id === idProd), // lấy thông tin sản phẩm hiện tại
+      favourite: false // cập nhật thuộc tính favourite
+    };
+    fetch(`${apiUrl}/products/${idProd}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ favourite: false })
+      body: JSON.stringify(updatedProduct)
     }).then(res => {
       if (res.ok) {
         getListSp(); // Cập nhật danh sách sau khi xoá
@@ -70,10 +73,10 @@ const FavouriteScreen = (props) => {
 
 
   return (
-    <SafeAreaView style={{ flex: 1,margin:10, paddingBottom: 70 }}>
+    <SafeAreaView style={{ flex: 1, margin: 10, paddingBottom: 70 }}>
       <View style={{ flex: 1 }}>
-        <View style={{ flexDirection: 'row',}}>
-          <TouchableOpacity style={{justifyContent:'center'}} onPress={() => props.navigation.navigate('Menu')}>
+        <View style={{ flexDirection: 'row', }}>
+          <TouchableOpacity style={{ justifyContent: 'center' }} onPress={() => props.navigation.navigate('Menu')}>
             <Icon1 style={{}} name='menu' color={COLORS.primaryOrangeHex} size={25} />
           </TouchableOpacity>
           <Text style={{ color: 'black', fontSize: 20, padding: 10, fontWeight: 'bold' }}>Yêu thích</Text>
@@ -89,7 +92,7 @@ const FavouriteScreen = (props) => {
               <View style={styles.container}>
                 <Image style={styles.image} source={{ uri: item.image }} />
                 <View style={styles.info}>
-                  <TouchableOpacity style={{ flex: 1, position: 'absolute', marginLeft: 320, }} onPress={() => handleDelete(item.id)}>
+                  <TouchableOpacity style={{ flex: 1, position: 'absolute', marginLeft: 322, marginTop: 5 }} onPress={() => handleDelete(item.id)}>
                     <Icon color={'red'} name='heart' size={25} />
                   </TouchableOpacity>
                   <Text style={styles.productName}>{item.name}</Text>
@@ -110,8 +113,7 @@ const styles = StyleSheet.create({
   },
   container: {
     width: '100%', // Sản phẩm chiếm toàn bộ chiều rộng
-    height: 400,
-    borderRadius: 5,
+    borderRadius: 10,
     padding: 10,
     backgroundColor: '#fff',
     flexDirection: 'column', // Sắp xếp hình ảnh và thông tin theo chiều ngang
@@ -119,10 +121,11 @@ const styles = StyleSheet.create({
     marginBottom: 10, // Khoảng cách giữa các sản phẩm
   },
   image: {
-    width: '80%',
+    width: 250,
     alignContent: 'center', // Đặt chiều rộng của hình ảnh
     height: 250,
     borderRadius: 5,
+    margin: 10
   },
   info: {
     width: '100%', // Đặt chiều rộng của phần thông tin

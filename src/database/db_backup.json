@@ -49,7 +49,7 @@
       "review": 4.5,
       "description": "iPhone mới với màn hình OLED 6.7 inch Super Retina XDR, hệ điều hành iOS 17, camera sau chính 48 MP và phụ 12 MP, camera trước 12 MP, chip Apple A17 Pro 6 nhân, 8 GB RAM, 256 GB dung lượng lưu trữ, hỗ trợ 1 Nano SIM & 1 eSIM và 5G, pin 4422 mAh và sạc 20W.",
       "type": "apple",
-      "favourite": true,
+      "favourite": false,
       "image": "https://cdn.tgdd.vn/Products/Images/42/251192/iphone-14-pro-max-tim-thumb-600x600.jpg"
     },
     {
@@ -115,7 +115,7 @@
       "review": 5,
       "description": "Samsung ra mắt điện thoại mới với màn hình Dynamic AMOLED 2X 6.8 inch Quad HD+, Android 14, camera sau 200 MP chính và phụ 50 MP, 12 MP, 10 MP, camera trước 12 MP, chip Snapdragon 8 Gen 3 for Galaxy, 12 GB RAM, 256 GB lưu trữ, hỗ trợ 2 Nano SIM hoặc 2 eSIM hoặc 1 Nano SIM + 1 eSIM và 5G, pin 5000 mAh và sạc nhanh 45 W.",
       "type": "samsung",
-      "favourite": true,
+      "favourite": false,
       "image": "https://cdn.tgdd.vn/Products/Images/42/249948/samsung-galaxy-s23-ultra-green-thumbnew-600x600.jpg"
     },
     {
@@ -174,68 +174,35 @@
       "image": "https://cdn.tgdd.vn/Products/Images/42/322069/xiaomi-redmi-note-13-purple-thumb-600x600.jpg"
     }
   ],
-  "comments": [
-    {
-      "idProd": "1",
-      "user": "nam",
-      "content": "Máy đẹp vkl"
-    },
-    {
-      "idProd": "1",
-      "user": "vinh",
-      "content": "Máy đẹp vkl"
-    }
-  ],
   "carts": [
     {
-      "id": "c63e",
-      "idProd": "12",
-      "image": "https://cdn.tgdd.vn/Products/Images/42/314206/xiaomi-redmi-note-13-green-thumb-600x600.jpg",
-      "name": "Xiaomi Redmi Note 13 Pro",
-      "price": 995.02,
-      "dvi": "1150đ",
+      "id": "c496",
+      "idProd": "2",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/303891/iphone-15-plus-xanh-la-128gb-thumb-600x600.jpg",
+      "name": "iPhone 15 Plus",
+      "price": 850.02,
+      "dvi": "900đ",
+      "quantity": 3
+    },
+    {
+      "id": "7080",
+      "idProd": "1",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/305660/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
+      "name": "iPhone 15 Promax",
+      "price": 950.02,
+      "dvi": "1000đ",
+      "quantity": 1
+    },
+    {
+      "id": "624f",
+      "idProd": "6",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/307172/samsung-galaxy-s24-plus-violet-thumb-600x600.jpg",
+      "name": "Samsung Galaxy S24 Ultra 5G",
+      "price": 1530.02,
+      "dvi": "1.800đ",
       "quantity": 1
     }
   ],
-  "orders": [
-    {
-      "id": "bff2",
-      "products": [
-        {
-          "id": "5816",
-          "name": "Samsung Galaxy S23 Ultra 5G",
-          "price": 950.02,
-          "quantity": 4
-        },
-        {
-          "id": "b447",
-          "name": "Xiaomi Redmi Note 13 Pro",
-          "price": 995.02,
-          "quantity": 12
-        }
-      ],
-      "totalPrice": 15740.32
-    },
-    {
-      "id": "d039",
-      "products": [
-        {
-          "id": "5816",
-          "quantity": 4
-        },
-        {
-          "id": "b447",
-          "quantity": 5
-        },
-        {
-          "id": "c63e",
-          "name": "Xiaomi Redmi Note 13 Pro",
-          "price": 995.02,
-          "quantity": 1
-        }
-      ],
-      "totalPrice": null
-    }
-  ],
+  "orders": [],
   "contacts": []
 }
