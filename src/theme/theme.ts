@@ -129,4 +129,17 @@ interface Spacing {
     radius_20: 20,
     radius_25: 25,
   };
+
+  
+export const LIGHT_THEME = {
+  // Định nghĩa màu sắc cho chủ đề sáng
+  background: '#ffffff',
+  text: '#000000',
+};
+
+export const DARK_THEME = {
+  // Định nghĩa màu sắc cho chủ đề tối
+  background: '#000000',
+  text: '#ffffff',
+};
   

@@ -7,6 +7,7 @@ import apiUrl from '../database/api';
 import { useDispatch, useSelector } from 'react-redux'
 import Swiper from 'react-native-swiper';
 import { addCommentAPI, fetchComments } from '../redux/actions/CommentAction';
+import { addRecentlyViewed } from '../redux/reducers/recentReducer';
 
 
 
@@ -25,6 +26,7 @@ const HomeScreen = (props) => {
     const [xiaomiList, setxiaomiList] = useState([]);
     const [randomList, setrandomList] = useState([]);
     const listComment = useSelector(state => state.listComment.listComment);
+    const [recentProducts, setRecentProducts] = useState([]);
 
     //Tạo các state cho hiển thị chi tiết
 
@@ -57,18 +59,22 @@ const HomeScreen = (props) => {
         }
     };
 
-    const getListComment = async () => {
-        try {
-            const response = await fetch(`${apiUrl}/comments`);//load dlieu
-            const json = await response.json(); //chuyển dlieu -> json
-            setcommentList(json);
-        } catch (error) {
-            console.error(error);
-        } finally {
-            //kết thúc load dl
-            setIsLoading(false);
+    const addToRecentlyViewed = (product) => {
+        // Check if the product already exists in the list
+        const existingProductIndex = recentProducts.findIndex(item => item.id === product.id);
+
+        if (existingProductIndex === -1) {
+            // If the product is not in the list, add it to the beginning
+            setRecentProducts([product, ...recentProducts]);
+        } else {
+            // If the product is already in the list, move it to the beginning
+            const updatedProducts = [...recentProducts];
+            updatedProducts.splice(existingProductIndex, 1);
+            updatedProducts.unshift(product);
+            setRecentProducts(updatedProducts);
         }
-    }
+    };
+
 
     const dataState = (item) => {
         //gán dữ liệu cho state
@@ -80,6 +86,7 @@ const HomeScreen = (props) => {
         setpriceProd(item.price);
         setfavor(item.favor);
         setdescription(item.description);
+        addToRecentlyViewed(item);
     };
 
     const addToFavor = async () => {
@@ -168,7 +175,8 @@ const HomeScreen = (props) => {
             dispatch(addCommentAPI(newCmt));
             setcmt('');
         }
-    }
+    };
+
 
     React.useEffect(() => {
         const unsubscribe = props.navigation.addListener('focus', () => {
@@ -358,7 +366,7 @@ const HomeScreen = (props) => {
                     <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
                         <Text style={{ margin: 5, fontSize: 20 }}>Sản phẩm xem gần đây</Text>
                         <TouchableOpacity>
-                            <Text style={{ margin: 10, fontSize: 15 }} onPress={() => props.navigation.navigate('Seen')}>Xem tất cả</Text>
+                            <Text style={{ margin: 10, fontSize: 15 }} onPress={() => props.navigation.navigate('Seen',{recentProducts: recentProducts})}>Xem tất cả</Text>
                         </TouchableOpacity>
                     </View>
                     {
@@ -368,7 +376,7 @@ const HomeScreen = (props) => {
                             <FlatList
                                 horizontal
                                 showsHorizontalScrollIndicator={false}
-                                data={randomList}
+                                data={recentProducts}
                                 keyExtractor={item => item.id}
                                 renderItem={({ item }) => {
                                     return (
@@ -451,6 +459,40 @@ const HomeScreen = (props) => {
                                     <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 16, marginTop: 15 }}>Thông tin sản phẩm:</Text>
                                     <Text style={{ fontSize: 16, marginTop: 15, lineHeight: 24 }}>{description}</Text>
                                 </View>
+                                <Text style={{ color: 'black', fontWeight: 'bold', fontSize: 16, marginVertical: 15 }}>Xem gần đây</Text>
+
+                                <FlatList
+                                horizontal
+                                showsHorizontalScrollIndicator={false}
+                                data={recentProducts}
+                                keyExtractor={item => item.id}
+                                renderItem={({ item }) => {
+                                    return (
+                                        <TouchableOpacity style={styles.productView} onPress={() => {
+                                            //gán dữ liệu cho state
+                                            dataState(item);
+                                            setmodalVisible(true)
+                                        }}>
+                                            <View style={{ height: 198 }}>
+                                                <View style={{ justifyContent: 'center', alignItems: 'center', width: '100%' }}>
+                                                    <Image source={{ uri: item.image }} style={styles.image} />
+                                                </View>
+                                                <Text style={styles.productName}>{item.name}</Text>
+                                                <Text style={styles.productNum}>Giá cũ: {item.dvi}</Text>
+                                                <Text style={styles.productPrice}>{item.price}đ</Text>
+                                            </View>
+                                            <TouchableOpacity
+                                                style={{ marginTop: 10, height: 25, justifyContent: 'center', alignItems: 'center', backgroundColor: '#FACF23', borderRadius: 5, }}
+                                                onPress={() => {
+                                                    dataState(item);
+                                                    setmodalVisible(true)
+                                                }}>
+                                                <Text style={{ color: 'black' }}>Thêm</Text>
+                                            </TouchableOpacity>
+                                        </TouchableOpacity>
+                                    )
+                                }}
+                            />
                                 <View style={{ backgroundColor: '#EFEDED', padding: 10, borderRadius: 10, marginTop: 10 }}>
                                     <Text style={{ fontSize: 16, fontWeight: 'bold', marginBottom: 10 }}>Bình luận</Text>
                                     <View style={{ flexDirection: 'row', justifyContent:'space-between'}}>

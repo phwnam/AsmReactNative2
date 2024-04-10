@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity, FlatList, Modal, SafeAreaView, ScrollView,ToastAndroid, Image, TextInput, ImageBackground } from 'react-native'
-import React, { useState } from 'react'
+import React, { useState ,useEffect} from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { COLORS } from '../theme/theme';
 import apiUrl from '../database/api';
 
 
 const SeenProduct = (props) => {
+    const { navigation, route } = props;
+
     const [isLoading, setIsLoading] = useState(true);
     const [randomList, setrandomList] = useState([]);
     const [dssp, setDssp] = useState([]);
@@ -19,8 +21,17 @@ const SeenProduct = (props) => {
     const [reviewProd, setreviewProd] = useState('');
     const [description, setdescription] = useState('');
     const [quantity, setquantity] = useState('');
-    const [favor, setfavor] = useState('')
+    const [favor, setfavor] = useState('');
     const [modalVisible, setmodalVisible] = useState(false);
+    const [recentProducts, setrecentProducts] = useState([]);
+
+    useEffect(() => {
+        // Kiểm tra xem route.params có chứa danh sách sản phẩm không
+        if (route.params && route.params.productList) {
+            // Nếu có, cập nhật danh sách sản phẩm vào state
+            setProductList(route.params.productList);
+        }
+    }, [route.params]);
 
     const getListSp = async () => {
         try {

@@ -1,86 +1,57 @@
-import React from 'react';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity } from 'react-native';
+import React, { useEffect } from 'react';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ImageBackground } from 'react-native';
 
-const OnboardingScreen = ({ navigation }) => {
-  const pages = [
-    {
-      index:1,
-      title: 'Nguyễn Phương Nam _ PH35329',
-      image: require('../img/PhwNamShoplogo.png'),
-    },
-    {
-      index:2,
-      title: 'Khám phá các tính năng mới',
-      image: require('../img/PhwNamShoplogo.png'),
-    },
-    {
-      index:3,
-      title: 'Bắt đầu trải nghiệm ngay bây giờ',
-      image: require('../img/PhwNamShoplogo.png'),
-    },
-  ];
-
-  const handleGetStarted = () => {
-    navigation.navigate('Login');
-  };
+const SplashScreen = ({ navigation }) => {
+  useEffect(() => {
+    // Thực hiện các công việc cần thiết, như kiểm tra trạng thái đăng nhập,
+    // tải dữ liệu, và chuyển hướng đến màn hình khác sau một khoảng thời gian nhất định.
+    // Ví dụ:
+    setTimeout(() => {
+      // Chuyển hướng đến màn hình khác
+      navigation.navigate('Splash1');
+    }, 4000); // Chuyển hướng sau 2 giây
+  }, []);
 
   return (
-    <View style={styles.container}>
-      <ScrollView
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
-        style={{ flex: 1 }}
-      >
-        {pages.map((page, index) => (
-          <View key={index} style={styles.pageContainer}>
-            <Image source={page.image} style={styles.image} />
-            <Text style={styles.title}>{page.title}</Text>
-          </View>
-        ))}
-      </ScrollView>
-      <TouchableOpacity style={styles.getStartedButton} onPress={handleGetStarted}>
-        <Text style={styles.getStartedButtonText}>Bắt đầu</Text>
-      </TouchableOpacity>
-    </View>
+    <ImageBackground source={require('../img/background.png')} style={{ flex: 1 }}>
+      <View style={styles.container}>
+        <Image
+          source={require('../img/PhwNamShoplogo.png')} // Thay đổi đường dẫn đến hình ảnh logo của ứng dụng
+          style={styles.logo}
+        />
+        <Text style={styles.text}>Chào mừng thầy đến với ứng dụng của em!</Text>
+        <View style={{ marginTop: 100 }}>
+          <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Splash1')}>
+            <Text style={styles.text}>Tiếp tục</Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    </ImageBackground>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-  },
-  pageContainer: {
-    width: '100%',
-    alignItems: 'center',
     justifyContent: 'center',
-    paddingHorizontal: 20,
+    alignItems: 'center',
   },
-  image: {
-    width: 300,
-    height: 300,
-    resizeMode: 'contain',
+  logo: {
+    width: 200,
+    height: 150,
     marginBottom: 20,
+    resizeMode: 'contain',
   },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    marginBottom: 40,
+  text: {
+    fontSize: 16,
+    color: '#333333',
   },
-  getStartedButton: {
+  button: {
+    margin: 10,
     backgroundColor: '#FACF23',
-    paddingVertical: 15,
-    paddingHorizontal: 30,
-    borderRadius: 25,
-    marginBottom: 40,
-    alignSelf: 'center',
-  },
-  getStartedButtonText: {
-    color: 'black',
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
+    padding: 10,
+    borderRadius: 10
+  }
 });
 
-export default OnboardingScreen;
+export default SplashScreen;

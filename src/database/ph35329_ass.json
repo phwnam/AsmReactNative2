@@ -177,41 +177,21 @@
   "comments": [
     {
       "idProd": "1",
-      "user": "nam",
+      "user": "Phương Nam",
       "content": "Máy đẹp quá 1",
       "id": "5536"
     },
     {
       "idProd": "1",
-      "user": "vinh",
+      "user": "Quang Vinh",
       "content": "Tôi đã mua máy này và thấy rất ổn",
       "id": "dc59"
     },
     {
       "idProd": "1",
-      "user": "vinh",
+      "user": "Vũ",
       "content": "Máy tốt giá ổn",
       "id": "d259"
-    },
-    {
-      "id": "b367",
-      "user": "nam",
-      "content": "he"
-    },
-    {
-      "id": "fa13",
-      "user": "nam",
-      "content": "hiihi"
-    },
-    {
-      "id": "f0fc",
-      "user": "nam",
-      "content": "hello"
-    },
-    {
-      "id": "622a",
-      "user": "nam",
-      "content": "123"
     }
   ],
   "carts": [
@@ -240,7 +220,16 @@
       "name": "iPhone 15 Promax",
       "price": 950.02,
       "dvi": "1000đ",
-      "quantity": 1
+      "quantity": 2
+    },
+    {
+      "id": "0209",
+      "idProd": "11",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/298538/xiaomi-14-green-thumbnew-600x600.jpg",
+      "name": "Xiaomi Redmi Note 14 5G ",
+      "price": 1090.02,
+      "dvi": "1200đ",
+      "quantity": 2
     }
   ],
   "orders": [
