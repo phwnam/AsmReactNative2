@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "921924305456",
+    "project_id": "phwnammartcro102",
+    "storage_bucket": "phwnammartcro102.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:921924305456:android:5aed9e6535a2884d8663f5",
+        "android_client_info": {
+          "package_name": "com.phwnamphoneshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "921924305456-1roq81lsnd8mg2vcb257nrd265katilf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.phwnamphoneshop",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "921924305456-kccva4u90mnpqj0823vr1lgbl8het2ur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPM-77B8qBIi_NH6RcRGAyYaVhZ5kS664"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "921924305456-kccva4u90mnpqj0823vr1lgbl8het2ur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

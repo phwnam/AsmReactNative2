@@ -93,7 +93,7 @@ const FavouriteScreen = (props) => {
                 <Image style={styles.image} source={{ uri: item.image }} />
                 <View style={styles.info}>
                   <TouchableOpacity style={{ flex: 1, position: 'absolute', marginLeft: 322, marginTop: 5 }} onPress={() => handleDelete(item.id)}>
-                    <Icon color={'red'} name='heart' size={25} />
+                    <Icon color={'red'} name='heart' size={28} />
                   </TouchableOpacity>
                   <Text style={styles.productName}>{item.name}</Text>
                   <Text numberOfLines={5} style={styles.productPrice}>{item.description}</Text>

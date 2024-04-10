@@ -45,7 +45,7 @@ const ProductScreen = (props) => {
     }
   };
 
-  
+
 
   const handleDeleteItem = (itemId) => {
     Alert.alert(
@@ -67,46 +67,57 @@ const ProductScreen = (props) => {
     );
   };
 
-  const updateQuantity = async (itemId, newQuantity) => {
-    const updatedCart = cart.map((item) => {
-      if (item.id === itemId) {
-        return { ...item, quantity: newQuantity };
-      }
-      return item;
-    });
-
-    setCart(updatedCart);
-
+  const updateQuantity = async (id, newQuantity) => {
     try {
-      await fetch(`${apiUrl}/carts/${itemId}`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ quantity: newQuantity }),
-      });
-      console.log('Cart item updated successfully');
+        const response = await fetch(`${apiUrl}/carts/${id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ...cart.find(item => item.id === id),
+                quantity: newQuantity
+            })
+        });
+
+        if (response.ok) {
+            console.log('Số lượng đã được cập nhật thành công');
+
+            // Cập nhật lại giỏ hàng trên màn hình sau khi cập nhật thành công
+            const updatedCart = cart.map(item => {
+                if (item.id === id) {
+                    return { ...item, quantity: newQuantity };
+                }
+                return item;
+            });
+            setCart(updatedCart);
+        } else {
+            console.error('Lỗi khi cập nhật số lượng:', response.statusText);
+            // Xử lý lỗi nếu có
+        }
     } catch (error) {
-      console.error('Error updating cart item:', error);
+        console.error('Lỗi khi cập nhật số lượng:', error);
+        // Xử lý lỗi nếu có
     }
-  };
+};
+
 
   const handlePayment = async () => {
     if (cart.length === 0) {
       ToastAndroid.show('Giỏ hàng của bạn đang trống!', ToastAndroid.SHORT);
       return;
     }
-  
+
     try {
       const totalPrice = calculateTotalPrice(cart);
-      
+
       const products = cart.map(item => ({
         id: item.id,
         name: item.name,
         price: item.price,
         quantity: item.quantity,
       }));
-      
+
       const response = await fetch(`${apiUrl}/orders`, {
         method: 'POST',
         headers: {
@@ -114,16 +125,16 @@ const ProductScreen = (props) => {
         },
         body: JSON.stringify({ products, totalPrice }),
       });
-      
+
       const data = await response.json();
       console.log('Order created successfully:', data);
-      
+
       setPaymentSuccess(true);
       setCart([]);
       ToastAndroid.show('Thanh toán thành công!', ToastAndroid.SHORT);
-      
+
       // Sau khi thanh toán thành công, cập nhật giỏ hàng trên server
-  
+
       const response1 = await fetch(`${apiUrl}/carts`, {
         method: 'PUT',
         headers: {
@@ -131,7 +142,7 @@ const ProductScreen = (props) => {
         },
         body: JSON.stringify([]),
       });
-      
+
       const data1 = await response1.json();
       console.log('Cart cleared on server successfully');
     } catch (error) {
@@ -139,8 +150,8 @@ const ProductScreen = (props) => {
       ToastAndroid.show('Đã xảy ra lỗi khi thanh toán!', ToastAndroid.SHORT);
     }
   };
-  
-  
+
+
 
   return (
     <SafeAreaView style={{ flex: 1, margin: 10 }}>
@@ -245,7 +256,7 @@ const styles = StyleSheet.create({
   image: {
     width: 100,
     height: 100,
-    marginVertical:15,
+    marginVertical: 15,
     borderRadius: 5,
   },
   info: {

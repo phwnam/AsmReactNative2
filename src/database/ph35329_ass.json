@@ -27,7 +27,7 @@
       "review": 4.7,
       "description": "iPhone mới với màn hình OLED 6.7 inch Super Retina XDR, hệ điều hành iOS 17, camera sau chính 48 MP và phụ 12 MP, camera trước 12 MP, chip Apple A17 Pro 6 nhân, 8 GB RAM, 256 GB dung lượng lưu trữ, hỗ trợ 1 Nano SIM & 1 eSIM và 5G, pin 4422 mAh và sạc 20W.",
       "type": "apple",
-      "favourite": true,
+      "favourite": false,
       "image": "https://cdn.tgdd.vn/Products/Images/42/303891/iphone-15-plus-xanh-la-128gb-thumb-600x600.jpg"
     },
     {
@@ -82,7 +82,7 @@
       "review": 5,
       "description": "Samsung ra mắt điện thoại mới với màn hình Dynamic AMOLED 2X 6.8 inch Quad HD+, Android 14, camera sau 200 MP chính và phụ 50 MP, 12 MP, 10 MP, camera trước 12 MP, chip Snapdragon 8 Gen 3 for Galaxy, 12 GB RAM, 256 GB lưu trữ, hỗ trợ 2 Nano SIM hoặc 2 eSIM hoặc 1 Nano SIM + 1 eSIM và 5G, pin 5000 mAh và sạc nhanh 45 W.",
       "type": "samsung",
-      "favourite": false,
+      "favourite": true,
       "image": "https://cdn.tgdd.vn/Products/Images/42/307172/samsung-galaxy-s24-plus-violet-thumb-600x600.jpg"
     },
     {
@@ -115,7 +115,7 @@
       "review": 5,
       "description": "Samsung ra mắt điện thoại mới với màn hình Dynamic AMOLED 2X 6.8 inch Quad HD+, Android 14, camera sau 200 MP chính và phụ 50 MP, 12 MP, 10 MP, camera trước 12 MP, chip Snapdragon 8 Gen 3 for Galaxy, 12 GB RAM, 256 GB lưu trữ, hỗ trợ 2 Nano SIM hoặc 2 eSIM hoặc 1 Nano SIM + 1 eSIM và 5G, pin 5000 mAh và sạc nhanh 45 W.",
       "type": "samsung",
-      "favourite": true,
+      "favourite": false,
       "image": "https://cdn.tgdd.vn/Products/Images/42/249948/samsung-galaxy-s23-ultra-green-thumbnew-600x600.jpg"
     },
     {
@@ -178,22 +178,68 @@
     {
       "idProd": "1",
       "user": "nam",
-      "content": "Máy đẹp vkl"
+      "content": "Máy đẹp quá 1",
+      "id": "5536"
     },
     {
       "idProd": "1",
       "user": "vinh",
-      "content": "Máy đẹp vkl"
+      "content": "Tôi đã mua máy này và thấy rất ổn",
+      "id": "dc59"
+    },
+    {
+      "idProd": "1",
+      "user": "vinh",
+      "content": "Máy tốt giá ổn",
+      "id": "d259"
+    },
+    {
+      "id": "b367",
+      "user": "nam",
+      "content": "he"
+    },
+    {
+      "id": "fa13",
+      "user": "nam",
+      "content": "hiihi"
+    },
+    {
+      "id": "f0fc",
+      "user": "nam",
+      "content": "hello"
+    },
+    {
+      "id": "622a",
+      "user": "nam",
+      "content": "123"
     }
   ],
   "carts": [
     {
-      "id": "c63e",
-      "idProd": "12",
-      "image": "https://cdn.tgdd.vn/Products/Images/42/314206/xiaomi-redmi-note-13-green-thumb-600x600.jpg",
-      "name": "Xiaomi Redmi Note 13 Pro",
-      "price": 995.02,
-      "dvi": "1150đ",
+      "id": "94c4",
+      "idProd": "7",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/307172/samsung-galaxy-s24-plus-violet-thumb-600x600.jpg",
+      "name": "Samsung Galaxy S24+ 5G",
+      "price": 1030.02,
+      "dvi": "1.300đ",
+      "quantity": 2
+    },
+    {
+      "id": "b92a",
+      "idProd": "6",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/307174/samsung-galaxy-s24-ultra-grey-thumb-600x600.jpg",
+      "name": "Samsung Galaxy S24 Ultra 5G",
+      "price": 1230.02,
+      "dvi": "1.500đ",
+      "quantity": 2
+    },
+    {
+      "id": "44a6",
+      "idProd": "1",
+      "image": "https://cdn.tgdd.vn/Products/Images/42/305660/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
+      "name": "iPhone 15 Promax",
+      "price": 950.02,
+      "dvi": "1000đ",
       "quantity": 1
     }
   ],
@@ -235,6 +281,90 @@
         }
       ],
       "totalPrice": null
+    },
+    {
+      "id": "5cfe",
+      "products": [
+        {
+          "id": "c63e",
+          "name": "Xiaomi Redmi Note 13 Pro",
+          "price": 995.02,
+          "quantity": 3
+        },
+        {
+          "id": "9b87",
+          "name": "iPhone 15 Plus",
+          "price": 850.02,
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 5535.12
+    },
+    {
+      "id": "e17d",
+      "products": [
+        {
+          "id": "94c4",
+          "name": "Samsung Galaxy S24+ 5G",
+          "price": 1030.02,
+          "quantity": 13
+        },
+        {
+          "id": "b92a",
+          "name": "Samsung Galaxy S24 Ultra 5G",
+          "price": 1230.02,
+          "quantity": 6
+        }
+      ],
+      "totalPrice": 20770.38
+    },
+    {
+      "id": "3bd4",
+      "products": [
+        {
+          "id": "94c4",
+          "name": "Samsung Galaxy S24+ 5G",
+          "price": 1030.02,
+          "quantity": 13
+        },
+        {
+          "id": "b92a",
+          "name": "Samsung Galaxy S24 Ultra 5G",
+          "price": 1230.02,
+          "quantity": 6
+        },
+        {
+          "id": "44a6",
+          "name": "iPhone 15 Promax",
+          "price": 950.02,
+          "quantity": 4
+        }
+      ],
+      "totalPrice": 24570.46
+    },
+    {
+      "id": "cc24",
+      "products": [
+        {
+          "id": "94c4",
+          "name": "Samsung Galaxy S24+ 5G",
+          "price": 1030.02,
+          "quantity": 2
+        },
+        {
+          "id": "b92a",
+          "name": "Samsung Galaxy S24 Ultra 5G",
+          "price": 1230.02,
+          "quantity": 2
+        },
+        {
+          "id": "44a6",
+          "name": "iPhone 15 Promax",
+          "price": 950.02,
+          "quantity": 1
+        }
+      ],
+      "totalPrice": 5470.1
     }
   ],
   "contacts": []

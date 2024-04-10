@@ -3,6 +3,7 @@ import React from 'react';
 import { COLORS, FONTFAMILY, FONTSIZE, SPACING } from '../theme/theme';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
+import Auth from '../services/auth';
 
 
 const MenuScreen = ({ navigation }) => {
@@ -19,7 +20,7 @@ const MenuScreen = ({ navigation }) => {
         {
           text: "Đăng xuất",
           onPress: () => {
-            navigation.navigate('Login');
+            Auth.signOut();
           }
         }
       ]
