@@ -82,7 +82,7 @@
       "review": 5,
       "description": "Samsung ra mắt điện thoại mới với màn hình Dynamic AMOLED 2X 6.8 inch Quad HD+, Android 14, camera sau 200 MP chính và phụ 50 MP, 12 MP, 10 MP, camera trước 12 MP, chip Snapdragon 8 Gen 3 for Galaxy, 12 GB RAM, 256 GB lưu trữ, hỗ trợ 2 Nano SIM hoặc 2 eSIM hoặc 1 Nano SIM + 1 eSIM và 5G, pin 5000 mAh và sạc nhanh 45 W.",
       "type": "samsung",
-      "favourite": true,
+      "favourite": false,
       "image": "https://cdn.tgdd.vn/Products/Images/42/307172/samsung-galaxy-s24-plus-violet-thumb-600x600.jpg"
     },
     {
@@ -126,7 +126,7 @@
       "review": 5,
       "description": "Xiaomi giới thiệu điện thoại với màn hình AMOLED 6.36 inch 1.5K, Android 14, camera sau 3x50 MP, camera trước 32 MP, chip Snapdragon 8 Gen 3, 12 GB RAM, 256 GB dung lượng, hỗ trợ 2 Nano SIM và 5G, pin 4610 mAh và sạc nhanh 90W.",
       "type": "xiaomi",
-      "favourite": false,
+      "favourite": true,
       "image": "https://cdn.tgdd.vn/Products/Images/42/298538/xiaomi-14-green-thumbnew-600x600.jpg"
     },
     {
@@ -192,6 +192,21 @@
       "user": "Vũ",
       "content": "Máy tốt giá ổn",
       "id": "d259"
+    },
+    {
+      "id": "fa31",
+      "user": "nam",
+      "content": "may dep"
+    },
+    {
+      "id": "d8cc",
+      "user": "nam",
+      "content": "1111"
+    },
+    {
+      "id": "f248",
+      "user": "nam",
+      "content": "hihi"
     }
   ],
   "carts": [
@@ -202,34 +217,16 @@
       "name": "Samsung Galaxy S24+ 5G",
       "price": 1030.02,
       "dvi": "1.300đ",
-      "quantity": 2
+      "quantity": 3
     },
     {
-      "id": "b92a",
-      "idProd": "6",
-      "image": "https://cdn.tgdd.vn/Products/Images/42/307174/samsung-galaxy-s24-ultra-grey-thumb-600x600.jpg",
-      "name": "Samsung Galaxy S24 Ultra 5G",
-      "price": 1230.02,
-      "dvi": "1.500đ",
-      "quantity": 2
-    },
-    {
-      "id": "44a6",
+      "id": "2b13",
       "idProd": "1",
       "image": "https://cdn.tgdd.vn/Products/Images/42/305660/iphone-15-pro-max-blue-thumbnew-600x600.jpg",
       "name": "iPhone 15 Promax",
       "price": 950.02,
       "dvi": "1000đ",
-      "quantity": 2
-    },
-    {
-      "id": "0209",
-      "idProd": "11",
-      "image": "https://cdn.tgdd.vn/Products/Images/42/298538/xiaomi-14-green-thumbnew-600x600.jpg",
-      "name": "Xiaomi Redmi Note 14 5G ",
-      "price": 1090.02,
-      "dvi": "1200đ",
-      "quantity": 2
+      "quantity": 1
     }
   ],
   "orders": [
@@ -354,6 +351,18 @@
         }
       ],
       "totalPrice": 5470.1
+    },
+    {
+      "id": "b5b5",
+      "products": [
+        {
+          "id": "94c4",
+          "name": "Samsung Galaxy S24+ 5G",
+          "price": 1030.02,
+          "quantity": 3
+        }
+      ],
+      "totalPrice": 3090.06
     }
   ],
   "contacts": []

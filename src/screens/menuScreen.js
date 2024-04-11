@@ -4,6 +4,8 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { SPACING, FONTSIZE, COLORS, FONTFAMILY } from '../theme/theme';
 import { useNavigation } from '@react-navigation/native';
 import Auth from '../services/auth';
+import auth,{firebase} from '@react-native-firebase/auth'
+
 
 const LIGHT_THEME = {
   background: '#ffffff',
@@ -23,6 +25,23 @@ const DARK_THEME = {
 const MenuScreen = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const navigation = useNavigation();
+
+  const changePassword = () => {
+    const currentUser = firebase.auth().currentUser;
+    if (currentUser && currentUser.email) {
+      firebase
+        .auth()
+        .sendPasswordResetEmail(currentUser.email)
+        .then(() => {
+          Alert.alert('Password reset email sent');
+        })
+        .catch(error => {
+          Alert.alert(error.message);
+        });
+    } else {
+      Alert.alert('User email not available');
+    }
+  };
 
   const Logout = () => {
     Alert.alert(
@@ -138,7 +157,7 @@ const MenuScreen = () => {
               <TouchableOpacity onPress={() => Logout()} style={styles.button}>
                 <Text style={styles.buttonText}>Đăng xuất</Text>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => console.log("Chuyển sang đổi mật khẩu")} style={styles.button}>
+              <TouchableOpacity onPress={() => changePassword()} style={styles.button}>
                 <Text style={styles.buttonText}>Đổi mật khẩu</Text>
               </TouchableOpacity>
             </View>
